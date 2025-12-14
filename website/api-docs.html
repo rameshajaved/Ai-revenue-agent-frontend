@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation | Revtect.ai</title>
+    <link rel="stylesheet" href="/static/website/css/styles.css">
+    <style>
+        .api-section {
+            margin-bottom: 3rem;
+        }
+        .method-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-right: 0.75rem;
+        }
+        .method-get { 
+            background: var(--gradient-primary); 
+            color: white; 
+            box-shadow: var(--shadow-sm);
+        }
+        .method-post { 
+            background: var(--gradient-primary); 
+            color: white; 
+            box-shadow: var(--shadow-sm);
+        }
+        .method-put { 
+            background: var(--warning-color); 
+            color: white; 
+            box-shadow: var(--shadow-sm);
+        }
+        .method-delete { 
+            background: var(--error-color); 
+            color: white; 
+            box-shadow: var(--shadow-sm);
+        }
+        .endpoint-path {
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin: 0.5rem 0;
+        }
+        .code-block {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            transition: all 0.25s ease;
+        }
+        .code-block:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        .code-block code {
+            font-family: 'Courier New', 'Monaco', monospace;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        .code-block .comment {
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+        .code-block .string {
+            color: var(--primary-light);
+        }
+        .code-block .keyword {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Revtect.ai</div>
+                <nav class="nav">
+                    <a href="/website/">Home</a>
+                    <a href="/website/product.html">Product</a>
+                    <a href="/website/pricing.html">Pricing</a>
+                    <a href="/website/security.html">Security</a>
+                    <a href="/website/developers.html">Developers</a>
+                    <a href="/website/login.html" class="btn btn-outline">Login</a>
+                    <a href="/website/register.html" class="btn btn-primary">Get Started</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>API Documentation</h1>
+            <p>Connect your hospital systems to Revtect.ai</p>
+        </div>
+    </section>
+
+    <!-- Authentication Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Authentication</h2>
+                <p>Secure API access using API keys</p>
+            </div>
+
+            <div class="card">
+                <h3>Using API Keys</h3>
+                <p>Include your API key in the request header for all API calls:</p>
+                <div class="code-block">
+                    <code>
+<span class="comment"># Include in HTTP headers</span><br>
+X-API-Key: <span class="string">your_api_key_here</span>
+                    </code>
+                </div>
+                <p style="margin-top: 1rem; padding: 1rem; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: 8px; color: var(--text-secondary); font-size: 0.9rem;">
+                    <strong style="color: var(--text-primary);">Note:</strong> API keys are generated from your dashboard. Navigate to Settings → API Keys to create one.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Ingestion Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Data Ingestion</h2>
+                <p>Send patient and billing data for anomaly detection</p>
+            </div>
+
+            <div class="api-section">
+                <div class="endpoint-card">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span class="method-badge method-post">POST</span>
+                        <code class="endpoint-path">/api/v1/dashboard/ingest-data</code>
+                    </div>
+                    <p class="endpoint-description">
+                        Upload patient and billing data for processing and anomaly detection.
+                    </p>
+                    <p class="endpoint-meta">
+                        <strong>Auth:</strong> API Key | <strong>Plan:</strong> All plans
+                    </p>
+                </div>
+
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h4>Request Body</h4>
+                    <div class="code-block">
+                        <code>
+{<br>
+&nbsp;&nbsp;<span class="string">"patient_data"</span>: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"patient_id"</span>: <span class="string">"P001"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"visit_id"</span>: <span class="string">"V001"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"department"</span>: <span class="string">"Admission"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"item_code"</span>: <span class="string">"ADM001"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"item_name"</span>: <span class="string">"Emergency Admission"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"expected_charge"</span>: <span class="keyword">1500.00</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"billed_charge"</span>: <span class="keyword">0.00</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"quantity"</span>: <span class="keyword">1.0</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"timestamp"</span>: <span class="string">"2025-01-15T10:30:00Z"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;<span class="string">"billing_data"</span>: []<br>
+}
+                        </code>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h4>Example: cURL</h4>
+                    <div class="code-block">
+                        <code>
+<span class="comment"># Send data to API</span><br>
+curl -X POST <span class="string">"https://api.revenueintegrity.ai/api/v1/dashboard/ingest-data"</span> \<br>
+&nbsp;&nbsp;-H <span class="string">"X-API-Key: your_api_key_here"</span> \<br>
+&nbsp;&nbsp;-H <span class="string">"Content-Type: application/json"</span> \<br>
+&nbsp;&nbsp;-d <span class="string">'{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"patient_data": [{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"patient_id": "P001",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"visit_id": "V001",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"department": "Admission",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"item_code": "ADM001",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"item_name": "Emergency Admission",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"expected_charge": 1500.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"billed_charge": 0.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"quantity": 1.0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"timestamp": "2025-01-15T10:30:00Z"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}]<br>
+&nbsp;&nbsp;}'</span>
+                        </code>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h4>Example: Python</h4>
+                    <div class="code-block">
+                        <code>
+<span class="keyword">import</span> requests<br><br>
+<span class="comment"># API endpoint</span><br>
+url = <span class="string">"https://api.revenueintegrity.ai/api/v1/dashboard/ingest-data"</span><br>
+headers = {<br>
+&nbsp;&nbsp;<span class="string">"X-API-Key"</span>: <span class="string">"your_api_key_here"</span>,<br>
+&nbsp;&nbsp;<span class="string">"Content-Type"</span>: <span class="string">"application/json"</span><br>
+}<br><br>
+data = {<br>
+&nbsp;&nbsp;<span class="string">"patient_data"</span>: [{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"patient_id"</span>: <span class="string">"P001"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"visit_id"</span>: <span class="string">"V001"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"department"</span>: <span class="string">"Admission"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"item_code"</span>: <span class="string">"ADM001"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"item_name"</span>: <span class="string">"Emergency Admission"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"expected_charge"</span>: <span class="keyword">1500.00</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"billed_charge"</span>: <span class="keyword">0.00</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"quantity"</span>: <span class="keyword">1.0</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"timestamp"</span>: <span class="string">"2025-01-15T10:30:00Z"</span><br>
+&nbsp;&nbsp;}]<br>
+}<br><br>
+response = requests.post(url, headers=headers, json=data)<br>
+<span class="keyword">print</span>(response.json())
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-time Events Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Real-Time Event Processing</h2>
+                <p>Send events as they happen for instant anomaly detection</p>
+            </div>
+
+            <div class="api-section">
+                <div class="endpoint-card">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span class="method-badge method-post">POST</span>
+                        <code class="endpoint-path">/api/v1/dashboard/realtime-event</code>
+                    </div>
+                    <p class="endpoint-description">
+                        Process a single real-time event (admission, lab order, pharmacy issue, billing). Triggers instant ledger update, anomaly detection, and alerts.
+                    </p>
+                    <p class="endpoint-meta">
+                        <strong>Auth:</strong> API Key | <strong>Plan:</strong> All plans
+                    </p>
+                </div>
+
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h4>Request Body</h4>
+                    <div class="code-block">
+                        <code>
+{<br>
+&nbsp;&nbsp;<span class="string">"event_type"</span>: <span class="string">"admission"</span>, <span class="comment">// or "lab_order", "pharmacy_issue", "bill_created"</span><br>
+&nbsp;&nbsp;<span class="string">"patient_id"</span>: <span class="string">"P001"</span>,<br>
+&nbsp;&nbsp;<span class="string">"visit_id"</span>: <span class="string">"V001"</span>,<br>
+&nbsp;&nbsp;<span class="string">"department"</span>: <span class="string">"Admission"</span>,<br>
+&nbsp;&nbsp;<span class="string">"item_code"</span>: <span class="string">"ADM001"</span>,<br>
+&nbsp;&nbsp;<span class="string">"item_name"</span>: <span class="string">"Emergency Admission"</span>,<br>
+&nbsp;&nbsp;<span class="string">"timestamp"</span>: <span class="string">"2025-01-15T10:30:00Z"</span>,<br>
+&nbsp;&nbsp;<span class="string">"expected_charge"</span>: <span class="keyword">1500.00</span>,<br>
+&nbsp;&nbsp;<span class="string">"billed_charge"</span>: <span class="keyword">0.00</span>,<br>
+&nbsp;&nbsp;<span class="string">"quantity"</span>: <span class="keyword">1.0</span><br>
+}
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anomaly Retrieval Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Anomaly Retrieval</h2>
+                <p>Get detected anomalies and leakage information</p>
+            </div>
+
+            <div class="api-section">
+                <div class="endpoint-card" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span class="method-badge method-get">GET</span>
+                        <code class="endpoint-path">/api/v1/dashboard/anomalies</code>
+                    </div>
+                    <p class="endpoint-description">
+                        Retrieve detected anomalies with filtering and pagination.
+                    </p>
+                    <p class="endpoint-meta">
+                        <strong>Auth:</strong> API Key | <strong>Plan:</strong> All plans
+                    </p>
+                </div>
+
+                <div class="endpoint-card" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span class="method-badge method-get">GET</span>
+                        <code class="endpoint-path">/api/v1/dashboard/patient/{patient_id}</code>
+                    </div>
+                    <p class="endpoint-description">
+                        Get anomalies for a specific patient.
+                    </p>
+                    <p class="endpoint-meta">
+                        <strong>Auth:</strong> API Key | <strong>Plan:</strong> All plans
+                    </p>
+                </div>
+
+                <div class="endpoint-card">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span class="method-badge method-get">GET</span>
+                        <code class="endpoint-path">/api/v1/dashboard/overview</code>
+                    </div>
+                    <p class="endpoint-description">
+                        Get summary statistics and department breakdown.
+                    </p>
+                    <p class="endpoint-meta">
+                        <strong>Auth:</strong> API Key | <strong>Plan:</strong> All plans
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anomaly Resolution Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Anomaly Resolution</h2>
+                <p>Mark anomalies as resolved</p>
+            </div>
+
+            <div class="api-section">
+                <div class="endpoint-card">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span class="method-badge method-post">POST</span>
+                        <code class="endpoint-path">/api/v1/dashboard/anomalies/{anomaly_id}/resolve</code>
+                    </div>
+                    <p class="endpoint-description">
+                        Mark an anomaly as resolved.
+                    </p>
+                    <p class="endpoint-meta">
+                        <strong>Auth:</strong> API Key | <strong>Plan:</strong> All plans
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-alt">
+        <div class="container" style="text-align: center;">
+            <h2 style="margin-bottom: 1rem;">Need Help Integrating?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-secondary);">
+                Contact our support team for integration assistance
+            </p>
+            <a href="/website/contact.html" class="btn btn-primary">Contact Support</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Revtect.ai</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Helping hospitals recover lost revenue through intelligent detection and analysis.</p>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <a href="/website/product.html">Features</a>
+                    <a href="/website/pricing.html">Pricing</a>
+                    <a href="/website/security.html">Security</a>
+                    <a href="/website/api-docs.html">API Documentation</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="/website/">Home</a>
+                    <a href="/website/register.html">Get Started</a>
+                    <a href="/website/login.html">Login</a>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="/website/contact.html">Contact Us</a>
+                    <a href="/website/security.html">Security & Compliance</a>
+                    <a href="/website/developers.html">Developer Resources</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Revtect.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Revtect.ai</title>
+    <link rel="stylesheet" href="/static/website/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Revtect.ai</div>
+                <nav class="nav">
+                    <a href="/website/">Home</a>
+                    <a href="/website/register.html">Register</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Form -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Login to Your Account</h1>
+                <p>Access your hospital revenue dashboard</p>
+            </div>
+
+            <div id="alert-container"></div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address *</label>
+                    <input type="email" id="email" class="form-input" required placeholder="your.email@hospital.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password *</label>
+                    <input type="password" id="password" class="form-input" required placeholder="Enter your password">
+                </div>
+
+                <div style="text-align: right; margin-bottom: 1rem;">
+                    <a href="/website/forgot-password.html" style="font-size: 0.9rem;">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <span id="submit-text">Login</span>
+                    <span id="submit-loading" class="loading" style="display: none; margin-left: 0.5rem;"></span>
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="/website/register.html">Register your hospital</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '/api/v1';
+        
+        // Check for registration success message
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('registered') === 'true') {
+            const alertContainer = document.getElementById('alert-container');
+            alertContainer.innerHTML = '<div class="alert alert-success">Registration successful! Please login with your credentials.</div>';
+        }
+        
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const submitText = document.getElementById('submit-text');
+            const submitLoading = document.getElementById('submit-loading');
+            const alertContainer = document.getElementById('alert-container');
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            
+            // Show loading
+            submitBtn.disabled = true;
+            submitText.textContent = 'Logging in...';
+            submitLoading.style.display = 'inline-block';
+            alertContainer.innerHTML = '';
+            
+            try {
+                // Login using OAuth2PasswordRequestForm format
+                const formData = new URLSearchParams();
+                formData.append('username', email);
+                formData.append('password', password);
+                
+                const response = await fetch(`${API_BASE}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Success - store token and redirect to dashboard
+                    if (data.access_token) {
+                        localStorage.setItem('access_token', data.access_token);
+                        
+                        // Redirect to dashboard
+                        window.location.href = '/';
+                    } else {
+                        throw new Error('No access token received');
+                    }
+                } else {
+                    // Error
+                    const errorMsg = data.detail || data.message || 'Login failed. Please check your credentials.';
+                    alertContainer.innerHTML = `<div class="alert alert-error">${errorMsg}</div>`;
+                    submitBtn.disabled = false;
+                    submitText.textContent = 'Login';
+                    submitLoading.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                alertContainer.innerHTML = '<div class="alert alert-error">Network error. Please check your connection and try again.</div>';
+                submitBtn.disabled = false;
+                submitText.textContent = 'Login';
+                submitLoading.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
