@@ -141,7 +141,14 @@
                     })
                 });
                 
-                const data = await response.json();
+                let data;
+                try {
+                    const text = await response.text();
+                    data = text ? JSON.parse(text) : {};
+                } catch (parseError) {
+                    console.error('Failed to parse response:', parseError);
+                    throw new Error('Invalid response from server');
+                }
                 
                 if (response.ok) {
                     // Success
@@ -152,8 +159,8 @@
                         window.location.href = 'login.html?registered=true';
                     }, 2000);
                 } else {
-                    // Error
-                    const errorMsg = data.detail || data.message || 'Registration failed. Please try again.';
+                    // Error from server
+                    const errorMsg = data.detail || data.message || `Registration failed (${response.status}). Please try again.`;
                     alertContainer.innerHTML = `<div class="alert alert-error">${errorMsg}</div>`;
                     submitBtn.disabled = false;
                     submitText.textContent = 'Create Account';
@@ -161,7 +168,8 @@
                 }
             } catch (error) {
                 console.error('Registration error:', error);
-                alertContainer.innerHTML = '<div class="alert alert-error">Network error. Please check your connection and try again.</div>';
+                const errorMsg = error.message || 'Network error. Please check your connection and try again.';
+                alertContainer.innerHTML = `<div class="alert alert-error">${errorMsg}</div>`;
                 submitBtn.disabled = false;
                 submitText.textContent = 'Create Account';
                 submitLoading.style.display = 'none';
