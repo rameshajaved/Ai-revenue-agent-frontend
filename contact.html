@@ -139,27 +139,54 @@
     </footer>
 
     <script>
-        function handleContactSubmit(event) {
+        const BACKEND_URL = 'https://ai-revenue-agent.onrender.com';
+        
+        async function handleContactSubmit(event) {
             event.preventDefault();
+            
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
             
             // Get form data
             const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                hospital: document.getElementById('hospital').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('message').value
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                hospital: document.getElementById('hospital').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                message: document.getElementById('message').value.trim()
             };
             
-            // In a real application, you would send this to your backend
-            console.log('Contact form submitted:', formData);
-            
-            // Show success message
-            document.getElementById('form-success').style.display = 'block';
-            document.getElementById('contact-form').reset();
-            
-            // Scroll to success message
-            document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            try {
+                const response = await fetch(`${BACKEND_URL}/contact`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('form-success').style.display = 'block';
+                    document.getElementById('contact-form').reset();
+                    
+                    // Scroll to success message
+                    document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    alert('Error: ' + (data.detail || 'Failed to send message. Please try again.'));
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            } catch (error) {
+                console.error('Contact form error:', error);
+                alert('Network error. Please check your connection and try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
             
             return false;
         }
