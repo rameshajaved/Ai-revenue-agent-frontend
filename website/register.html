@@ -13,8 +13,8 @@
             <div class="header-content">
                 <div class="logo">Revtect.ai</div>
                 <nav class="nav">
-                    <a href="/website/">Home</a>
-                    <a href="/website/login.html">Login</a>
+                    <a href="index.html">Home</a>
+                    <a href="login.html">Login</a>
                 </nav>
             </div>
         </div>
@@ -46,7 +46,7 @@
                         <option value="enterprise">Enterprise - Multi-hospital groups</option>
                     </select>
                     <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">
-                        You can upgrade or change your plan later. <a href="/website/pricing.html">View plan details</a>
+                        You can upgrade or change your plan later. <a href="pricing.html">View plan details</a>
                     </p>
                 </div>
 
@@ -83,13 +83,14 @@
             </form>
 
             <div class="auth-footer">
-                <p>Already have an account? <a href="/website/login.html">Login here</a></p>
+                <p>Already have an account? <a href="login.html">Login here</a></p>
             </div>
         </div>
     </div>
 
     <script>
-        const API_BASE = '/api/v1';
+        const BACKEND_URL = 'https://ai-revenue-agent.onrender.com';
+        const API_BASE = `${BACKEND_URL}/api/v1`;
         
         document.getElementById('register-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -148,7 +149,7 @@
                     
                     // Redirect to login after 2 seconds
                     setTimeout(() => {
-                        window.location.href = '/website/login.html?registered=true';
+                        window.location.href = 'login.html?registered=true';
                     }, 2000);
                 } else {
                     // Error

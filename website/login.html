@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Revtect.ai</title>
-    <link rel="stylesheet" href="/static/website/css/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header -->
@@ -13,8 +13,8 @@
             <div class="header-content">
                 <div class="logo">Revtect.ai</div>
                 <nav class="nav">
-                    <a href="/website/">Home</a>
-                    <a href="/website/register.html">Register</a>
+                    <a href="index.html">Home</a>
+                    <a href="register.html">Register</a>
                 </nav>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 </div>
 
                 <div style="text-align: right; margin-bottom: 1rem;">
-                    <a href="/website/forgot-password.html" style="font-size: 0.9rem;">Forgot Password?</a>
+                    <a href="forgot-password.html" style="font-size: 0.9rem;">Forgot Password?</a>
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -52,13 +52,14 @@
             </form>
 
             <div class="auth-footer">
-                <p>Don't have an account? <a href="/website/register.html">Register your hospital</a></p>
+                <p>Don't have an account? <a href="register.html">Register your hospital</a></p>
             </div>
         </div>
     </div>
 
     <script>
-        const API_BASE = '/api/v1';
+        const BACKEND_URL = 'https://ai-revenue-agent.onrender.com';
+        const API_BASE = `${BACKEND_URL}/api/v1`;
         
         // Check for registration success message
         const urlParams = new URLSearchParams(window.location.search);
@@ -105,8 +106,8 @@
                     if (data.access_token) {
                         localStorage.setItem('access_token', data.access_token);
                         
-                        // Redirect to dashboard
-                        window.location.href = '/';
+                        // Redirect to backend dashboard
+                        window.location.href = `${BACKEND_URL}/`;
                     } else {
                         throw new Error('No access token received');
                     }
