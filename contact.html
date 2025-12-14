@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Sales | Revtect.ai</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Revtect.ai</div>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="product.html">Product</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="security.html">Security</a>
+                    <a href="developers.html">Developers</a>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Get Started</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Contact Sales</h1>
+            <p>Get in touch with our team to discuss Enterprise pricing and custom solutions</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2" style="max-width: 1000px; margin: 0 auto;">
+                <!-- Contact Form -->
+                <div class="card">
+                    <h2>Send us a message</h2>
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name</label>
+                            <input type="text" id="name" class="form-input" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" id="email" class="form-input" placeholder="john@hospital.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="hospital">Hospital/Organization Name</label>
+                            <input type="text" id="hospital" class="form-input" placeholder="City General Hospital" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-input" placeholder="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea id="message" class="form-input" rows="5" placeholder="Tell us about your requirements..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                    <div id="form-success" style="display: none; margin-top: 1rem; padding: 1rem; background: hsla(250, 85%, 60%, 0.15); border: 1px solid hsla(250, 85%, 60%, 0.3); border-radius: 10px; color: var(--primary-light);">
+                        <strong>Thank you!</strong> We'll get back to you within 24 hours.
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="card">
+                    <h2>Get in touch</h2>
+                    <div style="margin-top: 2rem;">
+                        <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Enterprise Sales</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                            Our sales team is ready to help you find the perfect solution for your hospital chain or healthcare network.
+                        </p>
+                        
+                        <h3 style="margin-bottom: 1rem; color: var(--text-primary);">What to expect</h3>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                            <li style="padding: 0.75rem 0; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle);">
+                                <strong style="color: var(--text-primary);">Custom pricing</strong> based on your needs
+                            </li>
+                            <li style="padding: 0.75rem 0; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle);">
+                                <strong style="color: var(--text-primary);">Dedicated support</strong> and account management
+                            </li>
+                            <li style="padding: 0.75rem 0; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle);">
+                                <strong style="color: var(--text-primary);">Custom integrations</strong> with your existing systems
+                            </li>
+                            <li style="padding: 0.75rem 0; color: var(--text-secondary);">
+                                <strong style="color: var(--text-primary);">SLA guarantees</strong> and priority support
+                            </li>
+                        </ul>
+
+                        <div style="padding: 1.5rem; background: var(--bg-elevated); border-radius: 10px; border: 1px solid var(--border-subtle);">
+                            <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                                <strong style="color: var(--text-primary);">Response time:</strong> We typically respond within 24 hours during business days.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Revtect.ai</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Helping hospitals recover lost revenue through intelligent detection and analysis.</p>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <a href="product.html">Features</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="security.html">Security</a>
+                    <a href="developers.html">API Documentation</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="index.html">Home</a>
+                    <a href="register.html">Get Started</a>
+                    <a href="login.html">Login</a>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="security.html">Security & Compliance</a>
+                    <a href="developers.html">Developer Resources</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Revtect.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                hospital: document.getElementById('hospital').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+            
+            // In a real application, you would send this to your backend
+            console.log('Contact form submitted:', formData);
+            
+            // Show success message
+            document.getElementById('form-success').style.display = 'block';
+            document.getElementById('contact-form').reset();
+            
+            // Scroll to success message
+            document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & Compliance | Revtect.ai</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Revtect.ai</div>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="product.html">Product</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="security.html">Security</a>
+                    <a href="developers.html">Developers</a>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Get Started</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Security & Compliance</h1>
+            <p>Enterprise-grade security designed for healthcare data protection</p>
+        </div>
+    </section>
+
+    <!-- Security Features -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>How We Protect Your Data</h2>
+                <p>Multi-layered security measures ensure your patient and financial data remains secure</p>
+            </div>
+
+            <div class="grid grid-2" style="margin-bottom: 3rem;">
+                <div class="card">
+                    <h3>Multi-Tenant Data Isolation</h3>
+                    <p>Your hospital's data is completely isolated from all other hospitals in the system. Each organization has its own secure data partition with no cross-access possible.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Separate database partitions per hospital
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            No data sharing between organizations
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Hospital ID enforced at database level
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Role-Based Access Control</h3>
+                    <p>Control who can access what data within your hospital. Different roles have different permissions, ensuring staff only see what they need.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Admin: Full system access
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Manager: Department oversight
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Billing Staff: View and resolve anomalies
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Developer: API access only
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Secure API Key Management</h3>
+                    <p>Hospitals can generate their own API keys for system integrations. Keys are hashed and stored securely, with expiration dates and usage tracking.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            User-generated API keys
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Hashed storage (keys never stored in plain text)
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Expiration dates and revocation
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Last used tracking
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Complete Audit Logs</h3>
+                    <p>Every action in the system is logged with user identification, timestamp, and action details. Essential for compliance audits and security monitoring.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            User access tracking
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Anomaly resolution history
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            API key usage logs
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Data modification records
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Processing Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>AI Processing & Data Privacy</h2>
+                <p>Transparent and secure AI processing</p>
+            </div>
+
+            <div class="grid grid-2">
+                <div>
+                    <h3>Internal AI Processing</h3>
+                    <p>All AI-powered anomaly ranking and analysis happens securely within our system. Hospitals never need to manage, configure, or even see AI keys or credentials.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            AI processing handled internally
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            No AI keys exposed to hospitals
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Automatic fallback if AI unavailable
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Data Privacy Guarantee</h3>
+                    <p>Your patient and financial data is never used to train external AI models or shared with third parties. All processing is done for your hospital's exclusive use.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            No data used for external model training
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            No third-party data sharing
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--success-color);">✓</span>
+                            Hospital data remains hospital property
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Compliance & Standards</h2>
+                <p>Built to meet healthcare data protection requirements</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3>Data Encryption</h3>
+                    <p>All data in transit is encrypted using TLS/SSL. Sensitive data at rest is encrypted using industry-standard encryption methods.</p>
+                </div>
+                <div class="card">
+                    <h3>Access Controls</h3>
+                    <p>JWT-based authentication with secure token management. Password hashing using bcrypt with industry-standard security practices.</p>
+                </div>
+                <div class="card">
+                    <h3>Regular Security Audits</h3>
+                    <p>Our system undergoes regular security reviews and updates to ensure ongoing protection against emerging threats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-alt">
+        <div class="container" style="text-align: center;">
+            <h2 style="margin-bottom: 1rem;">Questions About Security?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-secondary);">
+                Contact our security team for detailed security documentation and compliance information
+            </p>
+            <a href="register.html" class="btn btn-primary">Get Started Securely</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Revtect.ai</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Helping hospitals recover lost revenue through intelligent detection and analysis.</p>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <a href="product.html">Features</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="security.html">Security</a>
+                    <a href="developers.html">API Documentation</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="index.html">Home</a>
+                    <a href="register.html">Get Started</a>
+                    <a href="login.html">Login</a>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="security.html">Security & Compliance</a>
+                    <a href="developers.html">Developer Resources</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Revtect.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
