@@ -7,13 +7,13 @@
     --primary-light: hsl(250, 90%, 72%);
     --accent-color: hsl(250, 85%, 60%);
     --accent-light: hsl(250, 90%, 72%);
-    
+
     /* Text hierarchy - Black & White */
     --text-primary: hsl(0, 0%, 98%);
     --text-secondary: hsl(0, 0%, 70%);
     --text-light: hsl(0, 0%, 55%);
     --text-dark: hsl(0, 0%, 15%);
-    
+
     /* Backgrounds - Black & White */
     --bg-dark: hsl(0, 0%, 8%);
     --bg-card: hsl(0, 0%, 12%);
@@ -22,24 +22,24 @@
     --bg-surface: hsl(0, 0%, 10%);
     --bg-white: hsl(0, 0%, 100%);
     --bg-light: hsl(0, 0%, 96%);
-    
+
     /* Borders - Subtle grays */
     --border-color: hsl(0, 0%, 25%);
     --border-subtle: hsl(0, 0%, 20%);
     --border-accent: hsla(250, 85%, 60%, 0.4);
     --border-light: hsl(0, 0%, 30%);
-    
+
     /* Status - Using purple accent for success, keeping others */
     --success-color: hsl(250, 85%, 60%);
     --warning-color: hsl(38, 92%, 50%);
     --error-color: hsl(0, 72%, 55%);
-    
+
     /* Gradients - Black & White with Purple Accents */
     --gradient-primary: linear-gradient(135deg, hsl(250, 85%, 60%) 0%, hsl(280, 75%, 55%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(250, 85%, 60%) 0%, hsl(250, 90%, 72%) 100%);
     --gradient-surface: linear-gradient(180deg, hsl(250, 85%, 15%) 0%, hsl(250, 85%, 10%) 20%, hsl(0, 0%, 10%) 50%, hsl(0, 0%, 8%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0, 0%, 12%) 0%, hsl(0, 0%, 10%) 100%);
-    
+
     /* Shadows */
     --shadow-sm: 0 2px 4px hsla(0, 0%, 0%, 0.3);
     --shadow-md: 0 4px 16px hsla(0, 0%, 0%, 0.4);
@@ -57,12 +57,12 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: var(--text-primary);
     line-height: 1.6;
-    background: linear-gradient(180deg, 
-        hsl(250, 85%, 12%) 0%, 
-        hsl(250, 85%, 10%) 15%, 
-        hsl(250, 60%, 8%) 30%, 
-        hsl(0, 0%, 10%) 60%, 
-        hsl(0, 0%, 8%) 100%);
+    background: linear-gradient(180deg,
+            hsl(250, 85%, 12%) 0%,
+            hsl(250, 85%, 10%) 15%,
+            hsl(250, 60%, 8%) 30%,
+            hsl(0, 0%, 10%) 60%,
+            hsl(0, 0%, 8%) 100%);
     background-attachment: fixed;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
@@ -70,7 +70,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 600;
     line-height: 1.25;
     margin-bottom: 1rem;
@@ -231,11 +236,11 @@ a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(180deg, 
-        hsl(250, 85%, 12%) 0%, 
-        hsl(250, 85%, 10%) 20%, 
-        hsl(250, 60%, 8%) 50%, 
-        hsl(0, 0%, 8%) 100%);
+    background: linear-gradient(180deg,
+            hsl(250, 85%, 12%) 0%,
+            hsl(250, 85%, 10%) 20%,
+            hsl(250, 60%, 8%) 50%,
+            hsl(0, 0%, 8%) 100%);
     padding: 5rem 0 6rem;
     text-align: center;
     position: relative;
@@ -249,11 +254,11 @@ a:hover {
     left: 0;
     right: 0;
     height: 100%;
-    background: radial-gradient(ellipse at top center, 
-        hsla(250, 85%, 60%, 0.2) 0%, 
-        hsla(250, 85%, 60%, 0.1) 30%, 
-        hsla(250, 60%, 50%, 0.05) 60%, 
-        transparent 100%);
+    background: radial-gradient(ellipse at top center,
+            hsla(250, 85%, 60%, 0.2) 0%,
+            hsla(250, 85%, 60%, 0.1) 30%,
+            hsla(250, 60%, 50%, 0.05) 60%,
+            transparent 100%);
     pointer-events: none;
     z-index: 0;
 }
@@ -265,9 +270,9 @@ a:hover {
     left: 0;
     right: 0;
     height: 50%;
-    background: linear-gradient(to bottom, 
-        transparent 0%, 
-        hsl(0, 0%, 8%) 100%);
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            hsl(0, 0%, 8%) 100%);
     pointer-events: none;
     z-index: 0;
 }
@@ -306,15 +311,15 @@ a:hover {
 .section {
     padding: 5rem 0;
     position: relative;
-    background: linear-gradient(180deg, 
-        hsl(0, 0%, 8%) 0%, 
-        hsl(0, 0%, 10%) 100%);
+    background: linear-gradient(180deg,
+            hsl(0, 0%, 8%) 0%,
+            hsl(0, 0%, 10%) 100%);
 }
 
 .section-alt {
-    background: linear-gradient(180deg, 
-        hsl(0, 0%, 10%) 0%, 
-        hsl(0, 0%, 8%) 100%);
+    background: linear-gradient(180deg,
+            hsl(0, 0%, 10%) 0%,
+            hsl(0, 0%, 8%) 100%);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
     position: relative;
@@ -377,6 +382,7 @@ a:hover {
     mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .card:hover {
@@ -767,7 +773,9 @@ a:hover {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* API Endpoint Cards */
@@ -871,24 +879,24 @@ a:hover {
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .hero p {
         font-size: 1.05rem;
     }
-    
+
     .nav {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .pricing-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .auth-card {
         padding: 1.75rem;
     }
-    
+
     .section {
         padding: 3.5rem 0;
     }
