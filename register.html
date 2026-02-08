@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Your Hospital | Revtect.ai</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" style="text-decoration: none; color: inherit;"><div class="logo">Revtect.ai</div></a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <div class="logo">Revtect.ai</div>
+                </a>
                 <nav class="nav">
                     <a href="index.html">Home</a>
                     <a href="login.html">Login</a>
@@ -33,7 +37,8 @@
             <form id="register-form">
                 <div class="form-group">
                     <label for="hospital-name" class="form-label">Hospital Name *</label>
-                    <input type="text" id="hospital-name" class="form-input" required placeholder="Enter your hospital name">
+                    <input type="text" id="hospital-name" class="form-input" required
+                        placeholder="Enter your hospital name">
                 </div>
 
                 <div class="form-group">
@@ -65,7 +70,8 @@
 
                 <div class="form-group">
                     <label for="password" class="form-label">Password *</label>
-                    <input type="password" id="password" class="form-input" required placeholder="Create a strong password" minlength="8">
+                    <input type="password" id="password" class="form-input" required
+                        placeholder="Create a strong password" minlength="8">
                     <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">
                         Minimum 8 characters
                     </p>
@@ -73,7 +79,8 @@
 
                 <div class="form-group">
                     <label for="confirm-password" class="form-label">Confirm Password *</label>
-                    <input type="password" id="confirm-password" class="form-input" required placeholder="Confirm your password">
+                    <input type="password" id="confirm-password" class="form-input" required
+                        placeholder="Confirm your password">
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
@@ -89,17 +96,17 @@
     </div>
 
     <script>
-        const BACKEND_URL = 'https://ai-revenue-agent.onrender.com';
+        const BACKEND_URL = 'https://ai-revenue-agent-backend.onrender.com';
         const API_BASE = `${BACKEND_URL}/api/v1`;
-        
+
         document.getElementById('register-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const submitBtn = e.target.querySelector('button[type="submit"]');
             const submitText = document.getElementById('submit-text');
             const submitLoading = document.getElementById('submit-loading');
             const alertContainer = document.getElementById('alert-container');
-            
+
             // Get form values
             const hospitalName = document.getElementById('hospital-name').value.trim();
             const plan = document.getElementById('plan').value;
@@ -107,24 +114,24 @@
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirm-password').value;
-            
+
             // Validation
             if (password !== confirmPassword) {
                 alertContainer.innerHTML = '<div class="alert alert-error">Passwords do not match</div>';
                 return;
             }
-            
+
             if (password.length < 8) {
                 alertContainer.innerHTML = '<div class="alert alert-error">Password must be at least 8 characters</div>';
                 return;
             }
-            
+
             // Show loading
             submitBtn.disabled = true;
             submitText.textContent = 'Creating Account...';
             submitLoading.style.display = 'inline-block';
             alertContainer.innerHTML = '';
-            
+
             try {
                 // Register hospital and user (combined endpoint)
                 const response = await fetch(`${API_BASE}/auth/register-hospital`, {
@@ -140,7 +147,7 @@
                         password: password
                     })
                 });
-                
+
                 let data;
                 try {
                     const text = await response.text();
@@ -149,11 +156,11 @@
                     console.error('Failed to parse response:', parseError);
                     throw new Error('Invalid response from server');
                 }
-                
+
                 if (response.ok) {
                     // Success
                     alertContainer.innerHTML = '<div class="alert alert-success">Account created successfully! Redirecting to login...</div>';
-                    
+
                     // Redirect to login after 2 seconds
                     setTimeout(() => {
                         window.location.href = 'login.html?registered=true';
@@ -177,5 +184,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

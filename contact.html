@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Sales | Revtect.ai</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" style="text-decoration: none; color: inherit;"><div class="logo">Revtect.ai</div></a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <div class="logo">Revtect.ai</div>
+                </a>
                 <nav class="nav">
                     <a href="index.html">Home</a>
                     <a href="product.html">Product</a>
@@ -51,7 +55,8 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="hospital">Hospital/Organization Name</label>
-                            <input type="text" id="hospital" class="form-input" placeholder="City General Hospital" required>
+                            <input type="text" id="hospital" class="form-input" placeholder="City General Hospital"
+                                required>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="phone">Phone Number</label>
@@ -59,11 +64,13 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="message">Message</label>
-                            <textarea id="message" class="form-input" rows="5" placeholder="Tell us about your requirements..." required></textarea>
+                            <textarea id="message" class="form-input" rows="5"
+                                placeholder="Tell us about your requirements..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                     </form>
-                    <div id="form-success" style="display: none; margin-top: 1rem; padding: 1rem; background: hsla(250, 85%, 60%, 0.15); border: 1px solid hsla(250, 85%, 60%, 0.3); border-radius: 10px; color: var(--primary-light);">
+                    <div id="form-success"
+                        style="display: none; margin-top: 1rem; padding: 1rem; background: hsla(250, 85%, 60%, 0.15); border: 1px solid hsla(250, 85%, 60%, 0.3); border-radius: 10px; color: var(--primary-light);">
                         <strong>Thank you!</strong> We'll get back to you within 24 hours.
                     </div>
                 </div>
@@ -74,28 +81,36 @@
                     <div style="margin-top: 2rem;">
                         <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Enterprise Sales</h3>
                         <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-                            Our sales team is ready to help you find the perfect solution for your hospital chain or healthcare network.
+                            Our sales team is ready to help you find the perfect solution for your hospital chain or
+                            healthcare network.
                         </p>
-                        
+
                         <h3 style="margin-bottom: 1rem; color: var(--text-primary);">What to expect</h3>
                         <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
-                            <li style="padding: 0.75rem 0; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle);">
+                            <li
+                                style="padding: 0.75rem 0; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle);">
                                 <strong style="color: var(--text-primary);">Custom pricing</strong> based on your needs
                             </li>
-                            <li style="padding: 0.75rem 0; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle);">
-                                <strong style="color: var(--text-primary);">Dedicated support</strong> and account management
+                            <li
+                                style="padding: 0.75rem 0; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle);">
+                                <strong style="color: var(--text-primary);">Dedicated support</strong> and account
+                                management
                             </li>
-                            <li style="padding: 0.75rem 0; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle);">
-                                <strong style="color: var(--text-primary);">Custom integrations</strong> with your existing systems
+                            <li
+                                style="padding: 0.75rem 0; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle);">
+                                <strong style="color: var(--text-primary);">Custom integrations</strong> with your
+                                existing systems
                             </li>
                             <li style="padding: 0.75rem 0; color: var(--text-secondary);">
                                 <strong style="color: var(--text-primary);">SLA guarantees</strong> and priority support
                             </li>
                         </ul>
 
-                        <div style="padding: 1.5rem; background: var(--bg-elevated); border-radius: 10px; border: 1px solid var(--border-subtle);">
+                        <div
+                            style="padding: 1.5rem; background: var(--bg-elevated); border-radius: 10px; border: 1px solid var(--border-subtle);">
                             <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
-                                <strong style="color: var(--text-primary);">Response time:</strong> We typically respond within 24 hours during business days.
+                                <strong style="color: var(--text-primary);">Response time:</strong> We typically respond
+                                within 24 hours during business days.
                             </p>
                         </div>
                     </div>
@@ -110,7 +125,8 @@
             <div class="footer-content">
                 <div>
                     <h4>Revtect.ai</h4>
-                    <p style="color: rgba(255, 255, 255, 0.8);">Helping hospitals recover lost revenue through intelligent detection and analysis.</p>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Helping hospitals recover lost revenue through
+                        intelligent detection and analysis.</p>
                 </div>
                 <div>
                     <h4>Product</h4>
@@ -139,16 +155,16 @@
     </footer>
 
     <script>
-        const BACKEND_URL = 'https://ai-revenue-agent.onrender.com';
-        
+        const BACKEND_URL = 'https://ai-revenue-agent-backend.onrender.com';
+
         async function handleContactSubmit(event) {
             event.preventDefault();
-            
+
             const submitBtn = event.target.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
-            
+
             // Get form data
             const formData = {
                 name: document.getElementById('name').value.trim(),
@@ -157,7 +173,7 @@
                 phone: document.getElementById('phone').value.trim(),
                 message: document.getElementById('message').value.trim()
             };
-            
+
             try {
                 const response = await fetch(`${BACKEND_URL}/contact`, {
                     method: 'POST',
@@ -166,14 +182,14 @@
                     },
                     body: JSON.stringify(formData)
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (response.ok) {
                     // Show success message
                     document.getElementById('form-success').style.display = 'block';
                     document.getElementById('contact-form').reset();
-                    
+
                     // Scroll to success message
                     document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 } else {
@@ -187,10 +203,10 @@
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
             }
-            
+
             return false;
         }
     </script>
 </body>
-</html>
 
+</html>

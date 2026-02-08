@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
         .api-section {
             margin-bottom: 3rem;
         }
+
         .method-badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -18,32 +20,38 @@
             text-transform: uppercase;
             margin-right: 0.75rem;
         }
-        .method-get { 
-            background: var(--gradient-primary); 
-            color: white; 
+
+        .method-get {
+            background: var(--gradient-primary);
+            color: white;
             box-shadow: var(--shadow-sm);
         }
-        .method-post { 
-            background: var(--gradient-primary); 
-            color: white; 
+
+        .method-post {
+            background: var(--gradient-primary);
+            color: white;
             box-shadow: var(--shadow-sm);
         }
-        .method-put { 
-            background: var(--warning-color); 
-            color: white; 
+
+        .method-put {
+            background: var(--warning-color);
+            color: white;
             box-shadow: var(--shadow-sm);
         }
-        .method-delete { 
-            background: var(--error-color); 
-            color: white; 
+
+        .method-delete {
+            background: var(--error-color);
+            color: white;
             box-shadow: var(--shadow-sm);
         }
+
         .endpoint-path {
             font-family: 'Courier New', monospace;
             font-size: 1rem;
             color: var(--text-primary);
             margin: 0.5rem 0;
         }
+
         .code-block {
             background: var(--bg-elevated);
             border: 1px solid var(--border-subtle);
@@ -53,35 +61,43 @@
             overflow-x: auto;
             transition: all 0.25s ease;
         }
+
         .code-block:hover {
             background: var(--bg-hover);
             border-color: var(--border-color);
             box-shadow: var(--shadow-sm);
         }
+
         .code-block code {
             font-family: 'Courier New', 'Monaco', monospace;
             font-size: 0.9rem;
             color: var(--text-primary);
             line-height: 1.8;
         }
+
         .code-block .comment {
             color: var(--text-light);
             opacity: 0.8;
         }
+
         .code-block .string {
             color: var(--primary-light);
         }
+
         .code-block .keyword {
             color: var(--primary-color);
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" style="text-decoration: none; color: inherit;"><div class="logo">Revtect.ai</div></a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <div class="logo">Revtect.ai</div>
+                </a>
                 <nav class="nav">
                     <a href="index.html">Home</a>
                     <a href="product.html">Product</a>
@@ -120,8 +136,10 @@
 X-API-Key: <span class="string">your_api_key_here</span>
                     </code>
                 </div>
-                <p style="margin-top: 1rem; padding: 1rem; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: 8px; color: var(--text-secondary); font-size: 0.9rem;">
-                    <strong style="color: var(--text-primary);">Note:</strong> API keys are generated from your dashboard. Navigate to Settings → API Keys to create one.
+                <p
+                    style="margin-top: 1rem; padding: 1rem; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: 8px; color: var(--text-secondary); font-size: 0.9rem;">
+                    <strong style="color: var(--text-primary);">Note:</strong> API keys are generated from your
+                    dashboard. Navigate to Settings → API Keys to create one.
                 </p>
             </div>
         </div>
@@ -204,7 +222,7 @@ curl -X POST <span class="string">"https://ai-revenue-agent.onrender.com/api/v1/
                         <code>
 <span class="keyword">import</span> requests<br><br>
 <span class="comment"># API endpoint</span><br>
-url = <span class="string">"https://ai-revenue-agent.onrender.com/api/v1/dashboard/ingest-data"</span><br>
+url = <span class="string">"https://ai-revenue-agent-backend.onrender.com/api/v1/dashboard/ingest-data"</span><br>
 headers = {<br>
 &nbsp;&nbsp;<span class="string">"X-API-Key"</span>: <span class="string">"your_api_key_here"</span>,<br>
 &nbsp;&nbsp;<span class="string">"Content-Type"</span>: <span class="string">"application/json"</span><br>
@@ -246,7 +264,8 @@ response = requests.post(url, headers=headers, json=data)<br>
                         <code class="endpoint-path">/api/v1/dashboard/realtime-event</code>
                     </div>
                     <p class="endpoint-description">
-                        Process a single real-time event (admission, lab order, pharmacy issue, billing). Triggers instant ledger update, anomaly detection, and alerts.
+                        Process a single real-time event (admission, lab order, pharmacy issue, billing). Triggers
+                        instant ledger update, anomaly detection, and alerts.
                     </p>
                     <p class="endpoint-meta">
                         <strong>Auth:</strong> API Key | <strong>Plan:</strong> All plans
@@ -369,7 +388,8 @@ response = requests.post(url, headers=headers, json=data)<br>
             <div class="footer-content">
                 <div>
                     <h4>Revtect.ai</h4>
-                    <p style="color: rgba(255, 255, 255, 0.8);">Helping hospitals recover lost revenue through intelligent detection and analysis.</p>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Helping hospitals recover lost revenue through
+                        intelligent detection and analysis.</p>
                 </div>
                 <div>
                     <h4>Product</h4>
@@ -397,5 +417,5 @@ response = requests.post(url, headers=headers, json=data)<br>
         </div>
     </footer>
 </body>
-</html>
 
+</html>
